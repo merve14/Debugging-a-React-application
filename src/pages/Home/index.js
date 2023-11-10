@@ -35,7 +35,7 @@ const Page = () => {
   // Getting the last event or using the default event if data is not available
   const lastEvent =
     data && data.events && data.events.length
-      ? data.events[data.events.length - 1]
+      ? data.events.sort((a, b) => new Date(b.date) - new Date(a.date))[0]
       : eventDefault;
 
   return (
